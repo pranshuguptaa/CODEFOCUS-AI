@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CodeFocus AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>CodeFocus AI</h1>
+    <button onclick="fetchData()">Process Data</button>
+    
+    <div id="output"></div>
+    <div id="input">
+        <h2>Raw Data</h2>
+        <p>Slack: "John: Working on feature X today<br>Sarah: Fixed bug #123"</p>
+        <p>Git: "commit 1a2b3c: Add feature X<br>commit 4d5e6f: Fix bug #123"</p>
+    </div>
+    <script>
+        async function fetchData() {
+            const response = await fetch('/process');
+            const data = await response.json();
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <h2>Summary</h2>
+                <ul>${data.summary.map(item => `<li>${item}</li>`).join('')}</ul>
+                <h2>Tasks</h2>
+                <ul>${data.tasks.map(task => `<li>${task}</li>`).join('')}</ul>
+            `;
+        }
+    </script>
+</body>
+</html>

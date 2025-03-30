@@ -1,0 +1,2 @@
+commit 1a2b3c: John - Add feature X groundwork
+commit 4d5e6f: Sarah - Fix bug #123

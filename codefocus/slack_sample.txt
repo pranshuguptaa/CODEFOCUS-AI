@@ -1,0 +1,3 @@
+John: Working on feature X today
+Sarah: Fixed bug #123, needs testing
+Mike: Stuck on API integration
